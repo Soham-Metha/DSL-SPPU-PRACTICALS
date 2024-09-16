@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Stack.cpp"
+#include "helpers.cpp"
 using namespace std;
 
 Stack stk = Stack();
@@ -13,9 +14,10 @@ bool Checker(char c) {
             return stk.push(c);
         
         case ')': //ASCII  40  41
+            return (stk.pop()-c == 1 );
         case '}': //ASCII 123 125
         case ']': //ASCII  91  93
-            return (stk.pop()-c <= 2);
+            return (stk.pop()-c == 2 );
 
         default:
             return true;
@@ -32,15 +34,19 @@ int main(){
     {
         if (!Checker(expr[i]))
         {
-            cout<<"given expression is not well parenthesized\n";
+            printStyled("41m\n\ngiven expression is not well parenthesized\n\n");
+            endStyled();
             return 0;
         }
         
     }
-    if (stk.isEmpty())
-        cout<<"given expression is well parenthesized\n";
-    else
-        cout<<"given expression is not well parenthesized\n";
+    if (stk.isEmpty()){
+        printStyled("42m\n\ngiven expression is well parenthesized\n\n");
+        endStyled();
+    } else {
+        printStyled("41m\n\ngiven expression is not well parenthesized\n\n");
+        endStyled();
+    }
     
     return 0;
 }

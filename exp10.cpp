@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Stack.cpp"
+#include "helpers.cpp"
 using namespace std;
 
 Stack stk;
@@ -67,7 +68,9 @@ int main(){
     cout<<"Enter Expression : ";
     getline(cin,expr);
 
-    cout<<"\n\n POSTFIX EXPRESSION : "<<eval(expr)<<"\n\n EVALUATION : "<<nums.pop()<< "\n";
+    printStyled("42m\n\n ");
+    cout<< "POSTFIX EXPRESSION : "<<eval(expr)<<"\n\n EVALUATION : "<<nums.pop()<< "\n\n";
+    endStyled();
     
     return 0;
 }
