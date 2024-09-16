@@ -1,14 +1,62 @@
 #include <iostream>
-
+#define STACKSIZE 100
 class Stack {
-    int16_t stack[100];
-    int16_t top = 0;
+    char stack[STACKSIZE];
+    int16_t top = -1;
 public:
-    void push(int16_t i) {
-        stack[top]=i;
+    bool push(char i) {
+        if (top==STACKSIZE)
+            return false;
+        
         top++;
+        stack[top]=i;
+        return true;
+    }
+    char pop(){
+        if (top==-1)
+        {
+            return ' ';
+        }
+        return stack[top--];
+    }
+    bool isEmpty(){
+        return (top==-1);
+    }
+    char atTop(){
+        if (top==-1)
+        {
+            return ' ';
+        }
+        return stack[top];
+    }
+};
+class StackInt {
+    int16_t stack[STACKSIZE];
+    int16_t top = -1;
+public:
+    bool push(int16_t i) {
+        if (top==STACKSIZE)
+            return false;
+        
+        top++;
+        stack[top]=i;
+        return true;
     }
     int16_t pop(){
-        return top--;
+        if (top==-1)
+        {
+            return 0;
+        }
+        return stack[top--];
+    }
+    bool isEmpty(){
+        return (top==-1);
+    }
+    int16_t atTop(){
+        if (top==-1)
+        {
+            return 0;
+        }
+        return stack[top];
     }
 };
