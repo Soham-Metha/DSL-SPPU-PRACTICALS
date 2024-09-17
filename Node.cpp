@@ -6,7 +6,8 @@ struct Data
     bool state;
     std::string name;
 
-    Data() {
+    Data()
+    {
         val = 0;
         val2 = 0;
         name = "";
@@ -14,7 +15,8 @@ struct Data
     }
 };
 
-struct Node {
+struct Node
+{
 public:
     Data data;
     Node *prev;
@@ -22,35 +24,39 @@ public:
 
     Node();
     Node(int16_t val);
-    Node(int16_t val,int16_t val2);
+    Node(int16_t val, int16_t val2);
     ~Node();
 };
 
-Node::Node()  {
+Node::Node()
+{
     this->data.val = 0;
-    this->prev= NULL;
-    this->next= NULL;
+    this->prev = NULL;
+    this->next = NULL;
 }
 
-Node::Node(int16_t val) {
+Node::Node(int16_t val)
+{
     this->data.val = val;
     this->data.val2 = 1;
-    this->prev= NULL;
-    this->next= NULL;
+    this->prev = NULL;
+    this->next = NULL;
 }
-Node::Node(int16_t val,int16_t val2) {
+Node::Node(int16_t val, int16_t val2)
+{
     this->data.val = val;
     this->data.val2 = val2;
-    this->prev= NULL;
-    this->next= NULL;
+    this->prev = NULL;
+    this->next = NULL;
 }
 
-Node::~Node() {
+Node::~Node()
+{
     delete this->next;
 }
-struct Node* swap(struct Node* ptr1, struct Node* ptr2)
+struct Node *swap(struct Node *ptr1, struct Node *ptr2)
 {
-    struct Node* tmp = ptr2->next;
+    struct Node *tmp = ptr2->next;
     ptr2->next = ptr1;
     ptr1->next = tmp;
     return ptr2;
